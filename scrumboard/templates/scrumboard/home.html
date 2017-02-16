@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>djangular</title>
+</head>
+<body ng-app="scrumboard">
+<div ng-controller="ScrumboardController">
+    <div ng-repeat="list in data">
+        <h3>{$ list.name $}</h3>
+        <ul>
+            <li ng-repeat="card in list.cards">{$ card.title $}</li>
+        </ul>
+        <input type="text" ng-model="new_title"/>
+        <button ng-click="add(list, new_title)">+</button>
+    </div>
+</div>
+<script src="{% static "angular/angular.min.js" %}"></script>
+<script src="{% static "scrumboard/js/scrumboard.js" %}"></script>
+</body>
+</html>

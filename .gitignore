@@ -1,0 +1,6 @@
+__pycache__
+.idea
+node_modules
+static_djangular
+djangular_front
+djangular_front_production
