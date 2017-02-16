@@ -22,11 +22,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'yxva1j2_x)bpf82ijac_v13=#kw1o!4o9^&kr!lljcvq12u=qp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
+    'melawika.pl',
 ]
 
 # Application definition
@@ -116,15 +115,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static_djangular")
+STATIC_ROOT = os.path.join(BASE_DIR, 'public')
 
-STATIC_URL = '/static/'
+STATIC_URL = '/'
 
 # w static_frontend mam pliki front-endu oddzielonego od back-endu
 # w przypadku środowiska produkcyjnego aplikacja rozpocznie od index.html
 # i nie będziemy używali plików statycznych poszczególnych aplikacji
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "node_modules"),
-    os.path.join(BASE_DIR, "djangular_front_production"),
+    os.path.join(BASE_DIR, 'node_modules'),
+    os.path.join(BASE_DIR, 'djangular_front_production'),
 ]
