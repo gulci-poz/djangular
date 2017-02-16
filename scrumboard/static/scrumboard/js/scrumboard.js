@@ -3,10 +3,12 @@
 
     var app = angular.module('scrumboard', []);
 
+    /*
     app.config(function ($interpolateProvider) {
         $interpolateProvider.startSymbol('{$');
         $interpolateProvider.endSymbol('$}');
     });
+    */
 
     app.controller('ScrumboardController',
         ['$scope', '$http', ScrumboardController]);

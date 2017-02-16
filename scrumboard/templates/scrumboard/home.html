@@ -4,19 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <title>djangular</title>
+    <link rel="stylesheet" type="text/css"
+          href="{% static "scrumboard/css/scrumboard.css" %}">
 </head>
 <body ng-app="scrumboard">
 <div ng-controller="ScrumboardController">
-    <div ng-repeat="list in data">
-        <h3>{$ list.name $}</h3>
+    {% verbatim %}
+    <div class="list" ng-repeat="list in data">
+        <h3>{{ list.name }}</h3>
         <ul>
-            <li ng-repeat="card in list.cards">{$ card.title $}</li>
+            <li ng-repeat="card in list.cards">
+                <scrumboard-card></scrumboard-card>
+            </li>
         </ul>
-        <input type="text" ng-model="new_title"/>
-        <button ng-click="add(list, new_title)">+</button>
+        <div class="flex">
+            <input type="text" ng-model="new_title"/>
+            <button ng-click="add(list, new_title)">+</button>
+        </div>
     </div>
+    {% endverbatim %}
 </div>
 <script src="{% static "angular/angular.min.js" %}"></script>
 <script src="{% static "scrumboard/js/scrumboard.js" %}"></script>
+<script src="{% static "scrumboard/directives/card.directive.js" %}"></script>
 </body>
 </html>
