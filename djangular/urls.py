@@ -18,7 +18,12 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name="scrumboard/home.html")),
+    # aplikację będzie serwował web serwer,
+    # dane będziemy uzyskiwali z django za pomocą REST API
+    # strona główna jest w index.html
+
+    # url(r'^$', TemplateView.as_view(template_name="scrumboard/home.html")),
+
     url(r'^admin/', admin.site.urls),
     url(r'^scrumboard/', include('scrumboard.urls')),
 ]

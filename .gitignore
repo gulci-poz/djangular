@@ -3,6 +3,5 @@ __pycache__
 !.idea/deployment.xml
 !.idea/webServers.xml
 djangular_front
-djangular_front_production
 node_modules
 public

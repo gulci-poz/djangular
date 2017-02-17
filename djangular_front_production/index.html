@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>djangular</title>
     <link rel="stylesheet" type="text/css"
-          href="{% static "scrumboard/css/scrumboard.css" %}">
+          href="scrumboard/css/scrumboard.css">
 </head>
 <body ng-app="scrumboard">
 <div ng-controller="ScrumboardController">
-    {% verbatim %}
     <div class="list" ng-repeat="list in data">
         <h3>{{ list.name }}</h3>
         <ul>
@@ -22,10 +20,9 @@
             <button ng-click="add(list, new_title)">+</button>
         </div>
     </div>
-    {% endverbatim %}
 </div>
-<script src="{% static "lib/angular.min.js" %}"></script>
-<script src="{% static "scrumboard/js/scrumboard.js" %}"></script>
-<script src="{% static "scrumboard/directives/card.directive.js" %}"></script>
+<script src="lib/angular.min.js"></script>
+<script src="scrumboard/js/scrumboard.js"></script>
+<script src="scrumboard/directives/card.directive.js"></script>
 </body>
 </html>
