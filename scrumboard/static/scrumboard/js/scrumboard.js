@@ -31,11 +31,29 @@
         };
 
         $scope.data = [];
-        $http.get('/scrumboard/lists/').then(
-            function (response) {
-                $scope.data = response.data;
-            }
-        );
+
+        $scope.loadData = function () {
+            $http.get('/scrumboard/lists/').then(
+                function (response) {
+                    $scope.data = response.data;
+                }
+            );
+        };
+
+        // wymaga ngRoute -> todo_later
+        // musimy pamiętać o $route w definicji i funkcji kontrolera
+        /*
+        $scope.reloadRoute = function () {
+            $route.reload();
+        };
+
+        $scope.$watch("data", function () {
+            $scope.reloadRoute();
+        });
+        */
+
+        // początkowe ładowanie danych
+        $scope.loadData();
     }
 
 }());
