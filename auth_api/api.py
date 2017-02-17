@@ -14,7 +14,7 @@ class LoginView(views.APIView):
             password=request.data.get('password')
         )
 
-        if user is None or not user.is_active():
+        if user is None or not user.is_active:
             return Response({
                 'status': 'Unauthorized',
                 'message': 'Username or password incorrect'

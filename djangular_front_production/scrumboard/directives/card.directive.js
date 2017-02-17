@@ -14,7 +14,7 @@
                 $scope.update = function () {
                     $http.put(url, $scope.card)
                         .then(function () {
-
+                                console.log('PUT ok')
                             },
                             function () {
                                 console.log('Access denied: put')

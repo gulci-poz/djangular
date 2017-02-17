@@ -32,9 +32,9 @@
 
         $scope.login = function () {
             $http.post('/api/auth_api/login/',
-                {username: 'gulci', password: 'gulci'})
+                {username: 'test', password: 'djangular'})
                 .then(function () {
-
+                    console.log('LOGIN ok')
                 }, function () {
                     console.log('Access denied: post login')
                 });

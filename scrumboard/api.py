@@ -8,10 +8,10 @@ from .serializers import ListSerializer, CardSerializer
 class ListViewSet(ModelViewSet):
     queryset = List.objects.all()
     serializer_class = ListSerializer
-    permission_classes = (permissions.is_authenticated(),)
+    permission_classes = (permissions.IsAuthenticated,)
 
 
 class CardViewSet(ModelViewSet):
     queryset = Card.objects.all()
     serializer_class = CardSerializer
-    permission_classes = (permissions.is_authenticated(),)
+    permission_classes = (permissions.IsAuthenticated,)

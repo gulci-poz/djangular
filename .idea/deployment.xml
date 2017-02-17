@@ -14,6 +14,7 @@
             <excludedPath local="true" path="$PROJECT_DIR$/node_modules" />
             <excludedPath local="true" path="$PROJECT_DIR$/djangular_front_production" />
             <excludedPath local="true" path="$PROJECT_DIR$/package.json" />
+            <excludedPath local="true" path="$PROJECT_DIR$/db.sqlite3" />
           </excludedPaths>
         </serverdata>
       </paths>
