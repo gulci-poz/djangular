@@ -124,6 +124,10 @@ STATIC_URL = '/'
 # i nie będziemy używali plików statycznych poszczególnych aplikacji
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'node_modules'),
+    # unikamy kopiowania zbędnych plików
+    # biblioteki JS będę odkładał (na razie ręcznie)
+    # w djangular_front_production/lib
+
+    # os.path.join(BASE_DIR, 'node_modules'),
     os.path.join(BASE_DIR, 'djangular_front_production'),
 ]
