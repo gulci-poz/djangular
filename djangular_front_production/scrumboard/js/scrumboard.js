@@ -20,7 +20,7 @@
                 title: title
             };
 
-            $http.post('/scrumboard/cards/', card)
+            $http.post('/api/scrumboard/cards/', card)
                 .then(function (response) {
                         list.cards.push(response.data);
                     },
@@ -33,7 +33,7 @@
         $scope.data = [];
 
         $scope.loadData = function () {
-            $http.get('/scrumboard/lists/').then(
+            $http.get('/api/scrumboard/lists/').then(
                 function (response) {
                     $scope.data = response.data;
                 }
