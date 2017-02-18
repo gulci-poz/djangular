@@ -49,7 +49,9 @@ ROOT_URLCONF = 'djangular.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            'djangular_production/templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -112,15 +114,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'public')
 
 STATIC_URL = '/'
 
-# w static_frontend mam pliki front-endu oddzielonego od back-endu
-# w przypadku środowiska produkcyjnego aplikacja rozpocznie od index.html
-# i nie będziemy używali plików statycznych poszczególnych aplikacji
-
 STATICFILES_DIRS = [
-    # unikamy kopiowania zbędnych plików
-    # biblioteki JS będę odkładał (na razie ręcznie)
-    # w djangular_front_production/lib
-
-    # os.path.join(BASE_DIR, 'node_modules'),
-    os.path.join(BASE_DIR, 'djangular_front_production'),
+    os.path.join(BASE_DIR, 'djangular_production/static'),
 ]

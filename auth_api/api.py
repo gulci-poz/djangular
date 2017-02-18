@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
-# from django.views.decorators.csrf import csrf_protect
-# from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_protect
+from django.utils.decorators import method_decorator
 
 from rest_framework import status, views
 from rest_framework.response import Response
@@ -10,7 +10,7 @@ from .serializers import UserSerializer
 
 class LoginView(views.APIView):
 
-    # @method_decorator(csrf_protect)
+    @method_decorator(csrf_protect)
     def post(self, request):
         user = authenticate(
             username=request.data.get('username'),
