@@ -50,7 +50,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'djangular_production/templates'
+            os.path.join(BASE_DIR, 'djangular_production/templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
