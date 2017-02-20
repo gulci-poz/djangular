@@ -8,28 +8,14 @@
           href="{% static "scrumboard/css/scrumboard.css" %}">
 </head>
 <body ng-app="scrumboard">
-<div ng-controller="ScrumboardController">
-    {% verbatim %}
-    <button ng-click="login()">Login</button>
-    <a href="/api/auth_api/logout/">Logout</a>
+<ng-view>
 
-    <div class="list" ng-repeat="list in data">
-        <h3>{{ list.name }}</h3>
-        <ul>
-            <li ng-repeat="card in list.cards">
-                <scrumboard-card></scrumboard-card>
-            </li>
-        </ul>
-        <div class="flex">
-            <input type="text" ng-model="new_title"/>
-            <button ng-click="add(list, new_title)">+</button>
-        </div>
-    </div>
-    {% endverbatim %}
-</div>
+</ng-view>
 <script src="{% static "lib/angular.min.js" %}"></script>
+<script src="{% static "lib/angular-route.min.js" %}"></script>
 <script src="{% static "scrumboard/js/scrumboard.js" %}"></script>
 <script src="{% static "scrumboard/js/scrumboard.config.js" %}"></script>
 <script src="{% static "scrumboard/directives/card.directive.js" %}"></script>
+<script src="{% static "scrumboard/js/login.controller.js" %}"></script>
 </body>
 </html>

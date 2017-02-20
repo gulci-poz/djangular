@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var app = angular.module('scrumboard', []);
+    var app = angular.module('scrumboard', ['ngRoute']);
 
     /*
      app.config(function ($interpolateProvider) {
@@ -11,9 +11,9 @@
      */
 
     app.controller('ScrumboardController',
-        ['$scope', '$http', ScrumboardController]);
+        ['$scope', '$http', '$location', ScrumboardController]);
 
-    function ScrumboardController($scope, $http) {
+    function ScrumboardController($scope, $http, $location) {
         $scope.add = function (list, title) {
             var card = {
                 list: list.id,
@@ -30,13 +30,10 @@
                 );
         };
 
-        $scope.login = function () {
-            $http.post('/api/auth_api/login/',
-                {username: 'test', password: 'djangular'})
+        $scope.logout = function () {
+            $http.get('/api/auth_api/logout/')
                 .then(function () {
-                    console.log('LOGIN ok')
-                }, function () {
-                    console.log('Access denied: post login')
+                    $location.url('/login')
                 });
         };
 
