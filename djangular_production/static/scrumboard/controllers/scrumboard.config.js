@@ -9,11 +9,11 @@
     function config($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: '/scrumboard/html/scrumboard.html',
+                templateUrl: '/scrumboard/controllers/scrumboard.html',
                 controller: 'ScrumboardController'
             })
             .when('/login', {
-                templateUrl: '/scrumboard/html/login.html',
+                templateUrl: '/scrumboard/services/login.html',
                 controller: 'LoginController'
             })
             .otherwise('/');

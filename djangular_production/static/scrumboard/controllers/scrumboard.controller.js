@@ -11,9 +11,32 @@
      */
 
     app.controller('ScrumboardController',
-        ['$scope', '$http', '$location', ScrumboardController]);
+        ['$scope', '$http', 'Login', ScrumboardController]);
 
-    function ScrumboardController($scope, $http, $location) {
+    function ScrumboardController($scope, $http, Login) {
+
+        Login.redirectIfNotLoggedIn();
+
+        $scope.data = [];
+        $scope.logout = Login.logout;
+        $scope.sortBy = 'title';
+        $scope.reverse = false;
+        $scope.showFilters = false;
+
+        $scope.loadData = function () {
+            $http.get('/api/scrumboard/lists/')
+                .then(function (response) {
+                        $scope.data = response.data;
+                    },
+                    function () {
+                        console.log('Access denied: get')
+                    }
+                );
+        };
+
+        // początkowe ładowanie danych
+        $scope.loadData();
+
         $scope.add = function (list, title) {
             var card = {
                 list: list.id,
@@ -30,30 +53,6 @@
                 );
         };
 
-        $scope.logout = function () {
-            $http.get('/api/auth_api/logout/')
-                .then(function () {
-                    $location.url('/login')
-                });
-        };
-
-        $scope.data = [];
-
-        $scope.sortBy = 'title';
-        $scope.reverse = false;
-        $scope.showFilters = false;
-
-        $scope.loadData = function () {
-            $http.get('/api/scrumboard/lists/')
-                .then(function (response) {
-                        $scope.data = response.data;
-                    },
-                    function () {
-                        console.log('Access denied: get')
-                    }
-                );
-        };
-
         // wymaga ngRoute -> todo_later
         // musimy pamiętać o $route w definicji i funkcji kontrolera
         /*
@@ -65,9 +64,6 @@
          $scope.reloadRoute();
          });
          */
-
-        // początkowe ładowanie danych
-        $scope.loadData();
     }
 
 }());

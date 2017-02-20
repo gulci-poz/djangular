@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>djangular</title>
     <link rel="stylesheet" type="text/css"
-          href="{% static "scrumboard/css/scrumboard.css" %}">
+          href="{% static "scrumboard/scrumboard.css" %}">
 </head>
 <body ng-app="scrumboard">
 <ng-view>
@@ -13,9 +13,10 @@
 </ng-view>
 <script src="{% static "lib/angular.min.js" %}"></script>
 <script src="{% static "lib/angular-route.min.js" %}"></script>
-<script src="{% static "scrumboard/js/scrumboard.js" %}"></script>
-<script src="{% static "scrumboard/js/scrumboard.config.js" %}"></script>
+<script src="{% static "scrumboard/controllers/scrumboard.controller.js" %}"></script>
+<script src="{% static "scrumboard/controllers/scrumboard.config.js" %}"></script>
+<script src="{% static "scrumboard/services/login.controller.js" %}"></script>
+<script src="{% static "scrumboard/services/login.service.js" %}"></script>
 <script src="{% static "scrumboard/directives/card.directive.js" %}"></script>
-<script src="{% static "scrumboard/js/login.controller.js" %}"></script>
 </body>
 </html>
