@@ -39,6 +39,10 @@
 
         $scope.data = [];
 
+        $scope.sortBy = 'title';
+        $scope.reverse = false;
+        $scope.showFilters = false;
+
         $scope.loadData = function () {
             $http.get('/api/scrumboard/lists/')
                 .then(function (response) {
